@@ -3,9 +3,54 @@ package com.pluralsight.dealership;
 import com.pluralsight.Vehicle;
 
 public class SalesContract extends Contract{
+    private double salesTaxAmount;
+    private double recordingFee;
+    private double processingFee;
+    private boolean financeOption;
 
-    public SalesContract(String dateOfContract, String customerName, String customerEmail, Vehicle vehicleSold, double totalPrice, double monthlyPayment) {
-        super(dateOfContract, customerName, customerEmail, vehicleSold, totalPrice, monthlyPayment);
+    //sales tax|recording fee|processing fee|total cost|finance|monthly payment
+
+    public SalesContract(String dateOfContract, String customerName, String customerEmail,
+                         Vehicle vehicleSold, boolean financeOption) {
+
+        super(dateOfContract, customerName, customerEmail, vehicleSold);
+        this.salesTaxAmount = 0.05 * vehicleSold.getPrice(); //sale tax 5%
+        this.recordingFee = 100;
+        this.processingFee = (vehicleSold.getPrice() > 10000)?295:495;
+        //Processing fee ($295 for vehicles under $10,000 and $495 for all others
+        this.financeOption = financeOption;
+    }
+
+    public double getSalesTaxAmount() {
+        return salesTaxAmount;
+    }
+
+    public void setSalesTaxAmount(double salesTaxAmount) {
+        this.salesTaxAmount = salesTaxAmount;
+    }
+
+    public double getRecordingFee() {
+        return recordingFee;
+    }
+
+    public void setRecordingFee(double recordingFee) {
+        this.recordingFee = recordingFee;
+    }
+
+    public double getProcessingFee() {
+        return processingFee;
+    }
+
+    public void setProcessingFee(double processingFee) {
+        this.processingFee = processingFee;
+    }
+
+    public boolean isFinanceOption() {
+        return financeOption;
+    }
+
+    public void setFinanceOption(boolean financeOption) {
+        this.financeOption = financeOption;
     }
 
     @Override
