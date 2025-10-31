@@ -1,6 +1,12 @@
 package com.pluralsight.dealership;
 
+import com.pluralsight.Vehicle;
+
 public class SalesContract extends Contract{
+
+    public SalesContract(String dateOfContract, String customerName, String customerEmail, Vehicle vehicleSold, double totalPrice, double monthlyPayment) {
+        super(dateOfContract, customerName, customerEmail, vehicleSold, totalPrice, monthlyPayment);
+    }
 
     @Override
     public double getTotalPrice() {
