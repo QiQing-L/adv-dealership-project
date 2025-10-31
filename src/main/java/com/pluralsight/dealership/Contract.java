@@ -1,4 +1,5 @@
-package com.pluralsight;
+package com.pluralsight.dealership;
 
-public class Contract {
+public abstract class Contract {
+
 }

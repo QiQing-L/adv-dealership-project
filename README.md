@@ -1,15 +1,22 @@
-# Project Title
+# Car Dealership
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+A Java console app designed for salesmen and sales managers at a car dealership.
+It loads dealership and vehicle data from a CSV file, letting users view and search inventory by make, model, year, or price.
+The program provides a quick, text-based way to manage and explore vehicle listings right from the desktop.
 
 ## User Stories
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a user, I want to be able to see a list of ALL vehicles, so that I know what's on the list
+- As a user, I want to be able to find vehicles within a price range , so that I don't have to spend time looking through vehicles that's not in the price range.
+- As a user, I want to be able to find vehicles by make / model, color, mileage range, and type , so that I can easily go through vehicles that fit my client's needs.
+- As a user, I want to be able to find vehicles by year range, so that I can easily go through all vehicles that fits the year range.
+- As a user, I want to be able to add a vehicle to the dealership's inventory, so that the dealership's inventory is up to date.
+- As a user, I want to be able to remove a vehicle in the dealership's inventory, so that the dealership's inventory is up to date
+- I want to be able to choose the option 99 - Quit so that I can exit the application easily when I’m done using it
 
 ## Setup
 
@@ -32,14 +39,18 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java: JDK corretto-17 Amazon Corretto 17.0.16
+  Build system: Maven
+- IntelliJ IDEA 2025.2.1 (Community Edition)
 
 ## Demo
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](path/to/your/screenshot.png)
+![Application Screenshot](HomeScreenScreenshot.png)
+![Application Screenshot](VehicleDisplayScreenshot.png)
+![Application Screenshot](ErrorMessageScreenshot.png)
+
 
 ## Future Work
 
@@ -52,17 +63,16 @@ Outline potential future enhancements or functionalities you might consider addi
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- [potato-sensei](https://chatgpt.com/g/g-681d378b0c90819197b16e49abe384ec-potato-sensei)
+
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+Qi Qing Lin
 
 ## Thanks
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.
+- Thank you to Raymon Maroun for continuous support and guidance.
+- A special thanks to all peers for their help along the way.

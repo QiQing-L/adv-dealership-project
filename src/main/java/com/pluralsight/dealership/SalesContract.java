@@ -1,6 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.dealership;
 
-public class SalesContract {
+public class SalesContract extends Contract{
 
     @Override
     public double getTotalPrice() {
