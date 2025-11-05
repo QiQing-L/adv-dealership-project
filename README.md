@@ -1,10 +1,10 @@
-# Car Dealership
-
+# Car Dealership -Adv
 ## Description of the Project
 
 A Java console app designed for salesmen and sales managers at a car dealership.
-It loads dealership and vehicle data from a CSV file, letting users view and search inventory by make, model, year, or price.
-The program provides a quick, text-based way to manage and explore vehicle listings right from the desktop.
+This tool streamlines inventory management by loading vehicle data from CSV files and providing users with quick, text-based access to the inventory. 
+Key features include advanced search functionality(by price, make, model, year, etc.) and comprehensive transaction support, allowing users to create and save formal sales and lease contracts. 
+It offers an efficient desktop solution for managing vehicle listings and sales workflows.
 
 ## User Stories
 
@@ -47,9 +47,10 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](HomeScreenScreenshot.png)
-![Application Screenshot](VehicleDisplayScreenshot.png)
-![Application Screenshot](ErrorMessageScreenshot.png)
+![Application Screenshot](Homescreen.png)
+![Application Screenshot](sell-lease.png)
+![Application Screenshot](lease.png)
+![Application Screenshot](img.png)
 
 
 ## Future Work

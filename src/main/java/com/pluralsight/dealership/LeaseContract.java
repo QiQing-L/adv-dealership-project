@@ -53,11 +53,11 @@ public class LeaseContract extends Contract{
                 "\nDate of Contract: " + getDateOfContract() +
                 "\nCustomer Name: " + getCustomerName() +
                 "\nCustomer Email: " + getCustomerEmail() +
-                "\nVehicle Sold" + getVehicleSold() +
+                "\nVehicle Sold: " + getVehicleSold() +
                 "\nExpected Ending Value: " + expectedEndingValue +
                 "\nLease Fee: " + leaseFee +
                 "\nTotal Price: $" + getTotalPrice() +
-                "\nMonthly payment" + getMonthlyPayment();
+                "\nMonthly payment: $" + getMonthlyPayment();
     }
 
 

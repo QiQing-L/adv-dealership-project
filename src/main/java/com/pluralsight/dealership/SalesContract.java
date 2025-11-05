@@ -86,12 +86,12 @@ public class SalesContract extends Contract{
                 "\nDate of Contract: " + getDateOfContract() +
                 "\nCustomer Name: " + getCustomerName() +
                 "\nCustomer Email: " + getCustomerEmail() +
-                "\nVehicle Sold" + getVehicleSold() +
+                "\nVehicle Sold: " + getVehicleSold() +
                 "\nSales Tax Amount: " + salesTaxAmount +
                 "\nRecording Fee: " + recordingFee +
                 "\nProcessing Fee: " + processingFee +
                 "\nFinanceOption: " + financeOption +
                 "\nTotal Price: $" + getTotalPrice() +
-                "\nMonthly payment" +getMonthlyPayment();
+                "\nMonthly payment: $" +getMonthlyPayment();
     }
 }

@@ -87,7 +87,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return "{ " +
                 "vin: " + vin +
                 ", year: " + year +
                 ", make: '" + make + '\'' +

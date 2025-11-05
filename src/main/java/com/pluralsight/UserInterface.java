@@ -22,7 +22,7 @@ public class UserInterface {
         init();
         boolean quit = false;
         while (!quit) {
-            System.out.println("---------- Menu ----------");
+            System.out.println("\n ---------- Menu ----------");
             System.out.println("1. Get vehicles by price");
             System.out.println("2. Get vehicles by make and model");
             System.out.println("3. Get vehicles by year");
@@ -215,6 +215,7 @@ public class UserInterface {
     }
 
     public void sellOrLeaseAVehicle(){
+        System.out.println("\n----Sell/Lease A Vehicle----");
         System.out.println("\n1. Sell "+"\n2. Lease " + "\n3. Back to Home Screen Menu" + "\nPlease enter your choice: ");
         String input = scanner.nextLine().trim();
 
