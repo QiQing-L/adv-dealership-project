@@ -10,13 +10,13 @@ It offers an efficient desktop solution for managing vehicle listings and sales 
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a user, I want to be able to see a list of ALL vehicles, so that I know what's on the list
-- As a user, I want to be able to find vehicles within a price range , so that I don't have to spend time looking through vehicles that's not in the price range.
-- As a user, I want to be able to find vehicles by make / model, color, mileage range, and type , so that I can easily go through vehicles that fit my client's needs.
-- As a user, I want to be able to find vehicles by year range, so that I can easily go through all vehicles that fits the year range.
-- As a user, I want to be able to add a vehicle to the dealership's inventory, so that the dealership's inventory is up to date.
 - As a user, I want to be able to remove a vehicle in the dealership's inventory, so that the dealership's inventory is up to date
 - I want to be able to choose the option 99 - Quit so that I can exit the application easily when I’m done using it
+- As a user, I want the system to calculate all pricing, taxes, and fees automatically, so that I can minimize manual calculation time and focus on serving the customer.
+- As a user (salesperson or dealership manager), I want a clear "Sell/Lease a Vehicle" option on the main menu, so that I can quickly initiate the process of finalizing a sale or lease transaction.
+- As a user I want to be able to add the vehicle information to the contract, so that the transaction accurately reflects the details of the vehicle being sold or leased.
+- As a user (salesperson or manager), I want to explicitly select "Sale" or "Lease", so that the correct pricing calculations and contract terms can be applied.
+
 
 ## Setup
 
