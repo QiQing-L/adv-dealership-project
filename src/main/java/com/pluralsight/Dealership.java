@@ -111,4 +111,14 @@ public class Dealership {
     public void removeVehicle(Vehicle vehicle) {
         inventory.remove(vehicle);
     }
+
+    public Vehicle getVehicleByVin(int vin) {
+        Vehicle matchingVehicle = null;
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin() == vin) {
+                matchingVehicle = vehicle;
+            }
+        }return matchingVehicle;
+
+    }
 }

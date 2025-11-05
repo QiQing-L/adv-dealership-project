@@ -2,6 +2,9 @@ package com.pluralsight.dealership;
 
 import com.pluralsight.Vehicle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Contract {
     private String dateOfContract;
     private String customerName;
