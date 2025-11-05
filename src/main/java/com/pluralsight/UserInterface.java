@@ -1,5 +1,11 @@
 package com.pluralsight;
 
+import com.pluralsight.dealership.Contract;
+import com.pluralsight.dealership.ContractFileManager;
+import com.pluralsight.dealership.LeaseContract;
+import com.pluralsight.dealership.SalesContract;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,7 +67,7 @@ public class UserInterface {
                     processRemoveVehicleRequest();
                     break;
                 case "10":
-                    //add method here
+                    sellOrLeaseAVehicle();
                     break;
                 case "99":
                     quit = true;
@@ -154,7 +160,7 @@ public class UserInterface {
         scanner.nextLine();
 
         System.out.print("Enter vehicle type (Car, Truck, SUV, Motorcycle): ");
-        String type = scanner.nextLine();
+        String type = scanner.nextLine().trim();
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, mileage, price);
 
@@ -187,6 +193,152 @@ public class UserInterface {
         manager.saveDealership(dealership);
     }
 
+    public void processRemoveVehicleRequest(int vin) {
+
+        boolean vehicleRemoved = false;
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                dealership.removeVehicle(vehicle);
+                System.out.println("Vehicle removed from inventory successfully!");
+                vehicleRemoved = true;
+                break;
+            }
+        }
+
+        if (!vehicleRemoved) {
+            System.out.println("Vehicle not found. Please try again.");
+            return;
+        }
+
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+    }
+
+    public void sellOrLeaseAVehicle(){
+        System.out.println("\n1. Sell "+"\n2. Lease " + "3. Back to Home Screen Menu" + "\nPlease enter your choice: ");
+        String input = scanner.nextLine().trim();
+        boolean done = false;
+        while (!done){
+            switch (input) {
+                case "1":
+                    processSalesContractRequest();
+                    break;
+                case "2":
+                    processLeaseContractRequest();
+                    break;
+                case "3":
+                    done=true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+
+            }
+        }
+
+
+    }
+
+    public void processSalesContractRequest(){
+        System.out.println("Sales Contract");
+        System.out.println("Please enter the follow information to create the contract: ");
+        System.out.println("Date of contract: " +
+                "(* In format of 4 digit year followed by 2 digit month and 2 digit date: YYYYMMDD ) ");
+        String dateOfContract = scanner.nextLine().trim();
+        System.out.println("Customer name (First Name and last Name): ");
+        String customerName = scanner.nextLine().trim();
+        System.out.println("Customer email: ");
+        String customerEmail = scanner.nextLine().trim();
+
+        Vehicle matchedVehicle = null;
+
+        boolean found = false;
+        while (!found){
+            System.out.print("Enter vehicle VIN: ");
+            int vin = scanner.nextInt();
+            scanner.nextLine();
+            matchedVehicle = dealership.getVehicleByVin(vin);
+            if (matchedVehicle != null){
+                found = true;
+            }else {
+                System.out.println("No matching vehicle found with VIN, lease try again.");
+            }
+        }
+
+        boolean financeOption =false;
+        boolean done =false;
+        while (!done){
+            System.out.println("\n Does customer want to finance (1: Yes / 2: No) " + "\nPlease enter your choice: ");
+            String input = scanner.nextLine().trim();
+            switch (input) {
+                case "1":
+                    financeOption = true;
+                    System.out.println("You have selected financing option.");
+                    done=true;
+                    break;
+                case "2":
+                    done=true;
+                    System.out.println("You have selected NO loan option.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+
+        Contract salesContract = new SalesContract (dateOfContract, customerName,
+                customerEmail, matchedVehicle, financeOption);
+
+        System.out.println(salesContract);
+        ContractFileManager contractManager = new ContractFileManager();
+        contractManager.saveContract(salesContract);
+        processRemoveVehicleRequest(matchedVehicle.getVin());
+
+    }
+
+
+    public void processLeaseContractRequest(){
+        System.out.println("Lease Contract");
+
+        Vehicle matchedVehicle = null;
+        boolean found = false;
+        while (!found){
+            System.out.print("Enter vehicle VIN : ");
+            int vin = scanner.nextInt();
+            scanner.nextLine();
+            matchedVehicle = dealership.getVehicleByVin(vin);
+            if (matchedVehicle != null){
+                int numberOfYear = LocalDate.now().getYear() - matchedVehicle.getYear();
+                if (numberOfYear <= 3){
+                    found = true;
+                }else {
+                    System.out.println("This vehicle is not available for lease, as it is over 3 years old." +
+                            "Please enter another vehicle VIN.");
+                }
+
+            }else {
+                System.out.println("No matching vehicle found with VIN, lease try again.");
+            }
+        }
+
+        System.out.println("Please enter the follow information to create the contract: ");
+        System.out.println("Date of contract: " +
+                "(* In format of 4 digit year followed by 2 digit month and 2 digit date: YYYYMMDD ) ");
+        String dateOfContract = scanner.nextLine().trim();
+        System.out.println("Customer name (First Name and last Name): ");
+        String customerName = scanner.nextLine().trim();
+        System.out.println("Customer email: ");
+        String customerEmail = scanner.nextLine().trim();
+
+        Contract leaseContract = new LeaseContract(dateOfContract, customerName,
+                customerEmail, matchedVehicle);
+
+        System.out.println(leaseContract);
+        ContractFileManager contractManager = new ContractFileManager();
+        contractManager.saveContract(leaseContract);
+        processRemoveVehicleRequest(matchedVehicle.getVin());
+
+    }
+
+
     private void init() {
         DealershipFileManager manager = new DealershipFileManager();
         dealership = manager.getDealership();
@@ -197,5 +349,6 @@ public class UserInterface {
             System.out.println(vehicle.toString());
         }
     }
+
 
 }

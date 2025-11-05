@@ -79,4 +79,19 @@ public class SalesContract extends Contract{
             return 0.0;
         }
     }
+
+    @Override
+    public String toString() {
+        return "\nSales Contract: " +
+                "\nDate of Contract: " + getDateOfContract() +
+                "\nCustomer Name: " + getCustomerName() +
+                "\nCustomer Email: " + getCustomerEmail() +
+                "\nVehicle Sold" + getVehicleSold() +
+                "\nSales Tax Amount: " + salesTaxAmount +
+                "\nRecording Fee: " + recordingFee +
+                "\nProcessing Fee: " + processingFee +
+                "\nFinanceOption: " + financeOption +
+                "\nTotal Price: $" + getTotalPrice() +
+                "\nMonthly payment" +getMonthlyPayment();
+    }
 }

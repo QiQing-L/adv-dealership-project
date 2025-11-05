@@ -8,7 +8,7 @@ import java.io.IOException;
 public class ContractFileManager {
 
     /* Bonus Ideas : to  LIST CONTRACTS ?
-    public getContracts {
+    public void getContracts {
         Dealership dealership = null;
         ArrayList<Vehicle> vehicles = new ArrayList<>();
 
@@ -69,7 +69,7 @@ public class ContractFileManager {
                         + contract.getTotalPrice() + "|" +((SalesContract) contract).isFinanceOption() + "|"
                         + contract.getMonthlyPayment() + "|");
                 bw.newLine();
-                System.out.println("Sales contract saved successfully to contracts.csv.");
+                System.out.println("Sales contract has been successfully saved to contracts.csv." );
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -92,7 +92,7 @@ public class ContractFileManager {
                         + ((LeaseContract) contract).getLeaseFee() + "|"
                         + contract.getTotalPrice() + "|" + contract.getMonthlyPayment() + "|");
                 bw.newLine();
-                System.out.println("Lease contract saved successfully to contracts.csv.");
+                System.out.println("Lease contract has been successfully saved to contracts.csv.");
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -101,8 +101,6 @@ public class ContractFileManager {
         }else {
             System.out.println("Invalid contract type.");
         }
-
-
 
     }
 
