@@ -69,14 +69,12 @@ public class ContractFileManager {
                         + contract.getTotalPrice() + "|" +((SalesContract) contract).isFinanceOption() + "|"
                         + contract.getMonthlyPayment() + "|");
                 bw.newLine();
-                System.out.println("Sales contract has been successfully saved to contracts.csv." );
+                System.out.println("\nSales contract has been successfully saved to contracts.csv." );
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        if (contract instanceof LeaseContract){
+        } else if (contract instanceof LeaseContract){
             try (BufferedWriter bw = new BufferedWriter(new FileWriter("contracts.csv", true))) {
                 // Write lease contract information:
                 bw.write(//Type"LEASE"|contract date|name|email|
@@ -92,14 +90,14 @@ public class ContractFileManager {
                         + ((LeaseContract) contract).getLeaseFee() + "|"
                         + contract.getTotalPrice() + "|" + contract.getMonthlyPayment() + "|");
                 bw.newLine();
-                System.out.println("Lease contract has been successfully saved to contracts.csv.");
+                System.out.println("\nLease contract has been successfully saved to contracts.csv.");
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }else {
-            System.out.println("Invalid contract type.");
+            System.out.println("\nInvalid contract type.");
         }
 
     }
