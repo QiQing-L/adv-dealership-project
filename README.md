@@ -59,6 +59,10 @@ Outline potential future enhancements or functionalities you might consider addi
 
 - Additional feature to be developed.
 - Improvement of current functionalities.
+- Provide features to examine contracts:
+LIST ALL CONTRACTS
+LIST LAST 10 CONTRACTS
+- Add the ability for a buyer to select from a set of AddOn when they buy a vehicle.
 
 ## Resources
 
