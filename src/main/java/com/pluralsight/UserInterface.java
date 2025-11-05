@@ -217,8 +217,7 @@ public class UserInterface {
     public void sellOrLeaseAVehicle(){
         System.out.println("\n1. Sell "+"\n2. Lease " + "\n3. Back to Home Screen Menu" + "\nPlease enter your choice: ");
         String input = scanner.nextLine().trim();
-        boolean done = false;
-        while (!done){
+
             switch (input) {
                 case "1":
                     processSalesContractRequest();
@@ -227,20 +226,17 @@ public class UserInterface {
                     processLeaseContractRequest();
                     break;
                 case "3":
-                    done=true;
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
 
             }
-        }
+
 
 
     }
 
     public void processSalesContractRequest(){
-        boolean quit = false;
-        while (true) {
             System.out.println("Sales Contract");
             Vehicle matchedVehicle = null;
             boolean found = false;
@@ -251,7 +247,7 @@ public class UserInterface {
                 scanner.nextLine();
 
                 if (vin ==0){
-                    System.out.println("Exiting Sales Contract.");
+                    System.out.println("Exiting Sales Contract process.");
                     return;
                 }
 
@@ -300,25 +296,26 @@ public class UserInterface {
             ContractFileManager contractManager = new ContractFileManager();
             contractManager.saveContract(salesContract);
             processRemoveVehicleRequest(matchedVehicle.getVin());
-            break;
-        }
 
 
     }
 
 
     public void processLeaseContractRequest(){
-        boolean quit = false;
-        while (!quit){
+
             System.out.println("Lease Contract");
 
             Vehicle matchedVehicle = null;
             boolean found = false;
             while (!found){
-                System.out.print("Enter vehicle VIN : ");
+                System.out.print("Enter vehicle VIN (Or '0' to quit):");
                 int vin = scanner.nextInt();
                 scanner.nextLine();
-                if (vin == 0){ quit = true;}
+
+                if (vin ==0){
+                    System.out.println("Exiting Lease Contract process.");
+                    return;
+                }
 
                 matchedVehicle = dealership.getVehicleByVin(vin);
                 if (matchedVehicle != null){
@@ -327,11 +324,11 @@ public class UserInterface {
                         found = true;
                     }else {
                         System.out.println("This vehicle is not available for lease, as it is over 3 years old. " +
-                                "Please enter another vehicle VIN. Or enter '0' to quit.");
+                                "Please enter another vehicle VIN.");
                     }
 
                 }else {
-                    System.out.println("No matching vehicle found with VIN, lease try again. Or enter '0' to quit.");
+                    System.out.println("No matching vehicle found with VIN, lease try again.");
                 }
             }
 
@@ -351,9 +348,6 @@ public class UserInterface {
             ContractFileManager contractManager = new ContractFileManager();
             contractManager.saveContract(leaseContract);
             processRemoveVehicleRequest(matchedVehicle.getVin());
-            quit = true;
-
-        }
 
     }
 
